@@ -1,0 +1,33 @@
+[package]
+name = "lumitray"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+toml = "0.9"
+windows-animation = { path = "E:/Code/Clone/Rust/windows-rs/crates/libs/animation" }
+windows-reactor = { path = "E:/Code/Clone/Rust/windows-rs/crates/libs/reactor" }
+tray-icon-win = { path = "E:/Code/Project/Rust/tray-icon-win", features = ["svg"] }
+windows = { version = "0.62.2", features = [
+    "Win32_Devices_Display",
+    "Win32_Foundation",
+    "Win32_Graphics_Dwm",
+    "Win32_Graphics_Gdi",
+    "Win32_Storage_EnhancedStorage",
+    "Win32_System_Com",
+    "Win32_System_WinRT",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Registry",
+    "Win32_System_Threading",
+    "Storage_Streams",
+] }
+windows-core = "0.62.2"
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+strip = true
+panic = "abort"
